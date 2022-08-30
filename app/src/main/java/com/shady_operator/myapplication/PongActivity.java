@@ -11,6 +11,7 @@ import android.view.Display;
 public class PongActivity extends Activity {
 
     private PongGame mPongGame;
+    private PongGame contentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +26,24 @@ public class PongActivity extends Activity {
 
         mPongGame = new PongGame(this, size.x, size.y);
         setContentView(mPongGame);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    public void setContentView(PongGame contentView) {
+        this.contentView = contentView;
+    }
+
+    public PongGame getContentView() {
+        return contentView;
     }
 }
